@@ -1,4 +1,5 @@
 import pandas as pd
+import pandas_ta as ta
 
 df = pd.DataFrame() # Empty DataFrame
 
