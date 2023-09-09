@@ -1,109 +1,46 @@
-Pandas cookbook
-===============
-
-[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/jvns/pandas-cookbook/master)
-
-[pandas](http://pandas.pydata.org/) is a Python library for doing
-data analysis. It's really fast and lets you do exploratory work
-incredibly quickly.
-
-The goal of this cookbook is to give you some concrete examples for
-getting started with pandas. The [docs](http://pandas.pydata.org/pandas-docs/stable/)
-are really comprehensive. However, I've often had people
-tell me that they have some trouble getting started, so these are
-examples with real-world data, and all the bugs and weirdness
-that entails.
-
-It uses 3 datasets:
-
-* 311 calls in New York
-* How many people were on Montréal's bike paths in 2012
-* Montreal's weather for 2012, hourly
-
-It comes with batteries (data) included, so you can try out all the
-examples right away.
-
-Table of Contents
-=================
 
 
-* [A quick tour of the Jupyter Notebook](http://nbviewer.jupyter.org/github/jvns/pandas-cookbook/blob/master/cookbook/A%20quick%20tour%20of%20%20Notebook.ipynb)
-  <br> Shows off Jupyter's awesome tab completion and magic functions.
-* [Chapter 1: Reading from a CSV](http://nbviewer.jupyter.org/github/jvns/pandas-cookbook/blob/master/cookbook/Chapter%201%20-%20Reading%20from%20a%20CSV.ipynb)
-  <br> Reading your data into pandas is pretty much the easiest thing. Even when the encoding is wrong!
-* [Chapter 2: Selecting data & finding the most common complaint type](http://nbviewer.jupyter.org/github/jvns/pandas-cookbook/blob/master/cookbook/Chapter%202%20-%20Selecting%20data%20&%20finding%20the%20most%20common%20complaint%20type.ipynb)
-  <br>It's not totally obvious how to select data from a pandas dataframe. Here I explain the basics (how to take slices and get columns)
-* [Chapter 3: Which borough has the most noise complaints? (or, more selecting data)](http://nbviewer.jupyter.org/github/jvns/pandas-cookbook/blob/master/cookbook/Chapter%203%20-%20Which%20borough%20has%20the%20most%20noise%20complaints%20%28or%2C%20more%20selecting%20data%29.ipynb)
-  <br>Here we get into serious slicing and dicing and learn how to filter dataframes in complicated ways, really fast.
-* [Chapter 4: Find out on which weekday people bike the most with groupby and aggregate](http://nbviewer.jupyter.org/github/jvns/pandas-cookbook/blob/master/cookbook/Chapter%204%20-%20Find%20out%20on%20which%20weekday%20people%20bike%20the%20most%20with%20groupby%20and%20aggregate.ipynb)
-  <br> The groupby/aggregate is seriously my favorite thing about pandas and I use it all the time. You should probably read this.
-* [Chapter 5: Combining dataframes and scraping Canadian weather data](http://nbviewer.jupyter.org/github/jvns/pandas-cookbook/blob/master/cookbook/Chapter%205%20-%20Combining%20dataframes%20and%20scraping%20Canadian%20weather%20data.ipynb)
-  <br>Here you get to find out if it's cold in Montreal in the winter (spoiler: yes). Web scraping with pandas is fun!
-* [Chapter 6: String operations! Which month was the snowiest?](http://nbviewer.jupyter.org/github/jvns/pandas-cookbook/blob/master/cookbook/Chapter%206%20-%20String%20Operations-%20Which%20month%20was%20the%20snowiest.ipynb)
-  <br> Strings with pandas are great. It has all these vectorized string operations and they're the best. We will turn a bunch of strings containing "Snow" into vectors of numbers in a trice.
-* [Chapter 7: Cleaning up messy data](http://nbviewer.jupyter.org/github/jvns/pandas-cookbook/blob/master/cookbook/Chapter%207%20-%20Cleaning%20up%20messy%20data.ipynb)
-  <br> Cleaning up messy data is never a joy, but with pandas it's easier &lt;3
-* [Chapter 8: Parsing Unix timestamps](http://nbviewer.jupyter.org/github/jvns/pandas-cookbook/blob/master/cookbook/Chapter%208%20-%20How%20to%20deal%20with%20timestamps.ipynb)
-  <br> This is basically a quick trick that took me 2 days to figure out.
-* [Chapter 9 - Loading data from SQL databases](http://nbviewer.jupyter.org/github/jvns/pandas-cookbook/blob/master/cookbook/Chapter%209%20-%20Loading%20data%20from%20SQL%20databases.ipynb)
-  <br> How to load data from an SQL database into Pandas, with examples using SQLite3, PostgreSQL, and MySQL.
 
-How to use this cookbook
-========================
+# Pandas Cookbook
+This is the code repository for [Pandas Cookbook](https://www.packtpub.com/big-data-and-business-intelligence/pandas-cookbook?utm_source=github&utm_medium=repository&utm_campaign=9781784393878), published by [Packt](https://www.packtpub.com/?utm_source=github). It contains all the supporting project files necessary to work through the book from start to finish.
+## About the Book
+This book will provide you with unique, idiomatic, and fun recipes for both fundamental and advanced data manipulation tasks with pandas. Some recipes focus on achieving a deeper understanding of basic principles, or comparing and contrasting two similar operations. Other recipes will dive deep into a particular dataset, uncovering new and unexpected insights along the way. 
 
-The easiest way is to try it out instantly online using Binder's awesome service. **[Start by clicking here](https://mybinder.org/v2/gh/jvns/pandas-cookbook/master)**, wait for it to launch, then click on "cookbook", and you'll be off to the races! It will let you run all the code interactively without having to install anything on your computer.
+The pandas library is massive, and it’s common for frequent users to be unaware of many of its more impressive features. The official pandas documentation, while thorough, does not contain many useful examples of how to piece together multiple commands like one would do during an actual analysis. This book guides you, as if you were looking over the shoulder of an expert, through practical situations that you are highly likely to encounter.
 
-To install it locally, you'll need Jupyter notebook and pandas on your computer.
 
-You can get these using `pip` (you may want to do this inside a virtual environment to avoid conflicting with your other libraries).
+## Instructions and Navigation
+All of the code is organized into folders. Each folder starts with a number followed by the application name. For example, Chapter02.
 
-```bash
-  pip install -r requirements.txt
+
+
+The code will look like the following:
+```
+>>> employee = pd.read_csv('data/employee')
+>>> max_dept_salary = employee.groupby('DEPARTMENT')['BASE_SALARY'].max()
 ```
 
-This can be difficult to get set up and require you to compile
-a whole bunch of things. I instead use and recommend
-[Anaconda](https://store.continuum.io/), which is a Python distribution which
-will give you everything you need. It's free and open source.
+Pandas is a third-party package for the Python programming language and, as of the printing of this book, is on version 0.20. Currently, Python has two major supported releases, versions 2.7 and 3.6. Python 3 is the future, and it is now highly recommended that all scientific computing users of Python use it, as Python 2 will no longer be supported in 2020. All examples in this book have been run and tested with pandas 0.20 on Python 3.6.
 
-Once you have pandas and Jupyter, you can get going!
 
-```bash
-git clone https://github.com/jvns/pandas-cookbook.git
-cd pandas-cookbook/cookbook
-jupyter notebook
-```
 
-A tab should open up in your browser at `http://localhost:8888`
+In addition to pandas, you will need to have the matplotlib version 2.0 and seaborn version 0.8 visualization libraries installed. A major dependence for pandas is the NumPy library, which forms the basis of most of the popular Python scientific computing libraries.
 
-Happy pandas!
+There are a wide variety of ways in which you can install pandas and the rest of the libraries mentioned on your computer, but by far the simplest method is to install the Anaconda distribution. Created by Continuum Analytics, it packages together all the popular libraries for scientific computing in a single downloadable file available on Windows, Mac OSX, and Linux. Visit the download page to get the Anaconda distribution (https://www.anaconda.com/download).
 
-Running the cookbook inside a Docker container.
-===============================================================
-This repository contains a Dockerfile and can be built into a docker container.
-To build the container run following command from inside of the repository directory:
-```
-docker build -t jvns/pandas-cookbook -f Dockerfile-Local .
-```
-run the container:
-```
-docker run -d -p 8888:8888 -e "PASSWORD=MakeAPassword" <IMAGE ID>
-```
-you can find out about the id of the image, by checking
-```
-docker images
-```
+In addition to all the scientific computing libraries, the Anaconda distribution comes with Jupyter Notebook, which is a browser-based program for developing in Python, among many other languages. All of the recipes for this book were developed inside of a Jupyter Notebook and all of the individual notebooks for each chapter will be available for you to use.
 
-After starting the container, you can access the Jupyter notebook with the cookbook
-on port 8888. 
+It is possible to install all the necessary libraries for this book without the use of the Anaconda distribution. For those that are interested, visit the pandas Installation page (http://pandas.pydata.org/pandas-docs/stable/install.html).
 
-License
-=======
+## Related Products
+* [Robot Operating System Cookbook](https://www.packtpub.com/hardware-and-creative/robot-operating-system-cookbook?utm_source=github&utm_medium=repository&utm_campaign=9781783987443)
 
-<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />
+* [PostGIS Cookbook - Second Edition](https://www.packtpub.com/application-development/postgis-cookbook-second-edition?utm_source=github&utm_medium=repository&utm_campaign=9781788299329)
 
-This work is licensed under a [Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/)
+* [Windows Presentation Foundation Cookbook](https://www.packtpub.com/application-development/windows-presentation-foundation-cookbook?utm_source=github&utm_medium=repository&utm_campaign=9781788399807)
 
-## Translations
 
-There's [a translation into Chinese of this repo](https://github.com/ia-cas/pandas-cookbook).
+### Download a free PDF
+
+ <i>If you have already purchased a print or Kindle version of this book, you can get a DRM-free PDF version at no cost.<br>Simply click on the link to claim your free PDF.</i>
+<p align="center"> <a href="https://packt.link/free-ebook/9781784393878">https://packt.link/free-ebook/9781784393878 </a> </p>
